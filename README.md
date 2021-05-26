@@ -5,4 +5,4 @@
 ### Getting started
 
 - clone the repo `https://github.com/dushimeemma/eco-system-frontend`
-- run the app `expo start`
+- run the app `yarn start`
