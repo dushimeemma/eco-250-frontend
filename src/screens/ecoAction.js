@@ -67,7 +67,7 @@ const profile = ({ navigation }) => {
                   uri={
                     'https://firebasestorage.googleapis.com/v0/b/task-force-93e06.appspot.com/o/econext.png?alt=media&token=74aa2c5d-cd2d-406b-8e81-082d5426e844'
                   }
-                ></BackgroundImage>
+                />
               </View>
             </View>
           </View>
@@ -136,7 +136,9 @@ const profile = ({ navigation }) => {
           <Divider style={styles.divider} />
           <Divider style={styles.divider} />
           <TouchableWithoutFeedback
-            onPress={() => navigation.navigate('EcoShop', { name: 'EcoShop' })}
+            onPress={() =>
+              navigation.navigate('EcoTakeAction', { name: 'EcoTakeAction' })
+            }
           >
             <View style={styles.actionButton}>
               <ProfilePicture

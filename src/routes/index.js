@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import EcoAction from '../screens/ecoAction';
 import Eco250 from '../screens/eco250';
 import EcoShop from '../screens/ecoShop';
+import EcoTakeAction from '../screens/ecoTakeAction';
 import Image from '../components/Image';
 
 const Stack = createStackNavigator();
@@ -27,6 +28,7 @@ const StackNavigator = () => {
       />
       <Stack.Screen name='Eco250' component={Eco250} />
       <Stack.Screen name='EcoShop' component={EcoShop} />
+      <Stack.Screen name='EcoTakeAction' component={EcoTakeAction} />
     </Stack.Navigator>
   );
 };
