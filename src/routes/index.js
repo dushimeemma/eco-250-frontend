@@ -33,6 +33,25 @@ const StackNavigator = () => {
   );
 };
 
+const StackNavigatorShop = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen
+        name='EcoShop'
+        component={EcoShop}
+        options={{ title: 'Welcome To Eco Actions' }}
+      />
+      <Stack.Screen name='Eco250' component={Eco250} />
+      <Stack.Screen name='EcoAction' component={EcoAction} />
+      <Stack.Screen name='EcoTakeAction' component={EcoTakeAction} />
+    </Stack.Navigator>
+  );
+};
+
 const TabNavigator = () => {
   return (
     <NavigationContainer>
@@ -75,7 +94,7 @@ const TabNavigator = () => {
         />
         <Tab.Screen
           name='EcoShop'
-          component={StackNavigator}
+          component={StackNavigatorShop}
           options={{
             tabBarLabel: 'EcoShop',
             tabBarIcon: () => (
