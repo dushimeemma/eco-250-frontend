@@ -9,6 +9,8 @@ import EcoAction from '../screens/ecoAction';
 import Eco250 from '../screens/eco250';
 import EcoShop from '../screens/ecoShop';
 import EcoTakeAction from '../screens/ecoTakeAction';
+import EcoSignup from '../screens/ecoSignup';
+import EcoLogin from '../screens/ecoLogin';
 import Image from '../components/Image';
 
 const Stack = createStackNavigator();
@@ -22,10 +24,12 @@ const StackNavigator = () => {
       }}
     >
       <Stack.Screen
-        name='EcoAction'
-        component={EcoAction}
-        options={{ title: 'Welcome To Eco Actions' }}
+        name='EcoLogin'
+        component={EcoLogin}
+        options={{ title: 'Welcome To Eco250' }}
       />
+      <Stack.Screen name='EcoAction' component={EcoAction} />
+      <Stack.Screen name='EcoSignup' component={EcoSignup} />
       <Stack.Screen name='Eco250' component={Eco250} />
       <Stack.Screen name='EcoShop' component={EcoShop} />
       <Stack.Screen name='EcoTakeAction' component={EcoTakeAction} />

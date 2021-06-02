@@ -6,6 +6,9 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Text,
+  Alert,
+  Pressable,
+  Modal,
 } from 'react-native';
 
 import BackgroundImage from '../components/BackgroundImage';
@@ -20,6 +23,7 @@ import DaysCard from '../components/DaysCard';
 import colors from '../config/colors';
 
 const profile = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [tree, setTrees] = useState([
     {
       id: 1,
@@ -48,6 +52,29 @@ const profile = ({ navigation }) => {
   ]);
   return (
     <View style={styles.container}>
+      {/* modal starting ...... */}
+      <Modal
+        animationType='slide'
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      {/* modal ending ......*/}
       <BackgroundImage
         style={styles.image}
         uri={
@@ -255,7 +282,7 @@ const profile = ({ navigation }) => {
             <View style={styles.trees}>
               {tree.map((tree) => (
                 <TouchableWithoutFeedback
-                  onPress={() => console.log('Pressed' + tree.id)}
+                  onPress={() => setModalVisible(true)}
                   key={tree.id}
                 >
                   <View>
@@ -418,6 +445,47 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 25,
     //  transform: [{ rotate: '45deg' }]
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 
