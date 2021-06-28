@@ -3,11 +3,15 @@ import { StyleSheet, TouchableWithoutFeedback, View, Text } from 'react-native';
 
 import colors from '../config/colors';
 
-const Button = ({ onPress, title, buttonStyle, textStyle }) => {
+const Button = ({ onPress, title, buttonStyle, textStyle, isLoading }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styles.cardButton, buttonStyle]}>
-        <Text style={[styles.cardText, textStyle]}>{title}</Text>
+        {isLoading ? (
+          <Text style={[styles.cardText, textStyle]}>Loading...</Text>
+        ) : (
+          <Text style={[styles.cardText, textStyle]}>{title}</Text>
+        )}
       </View>
     </TouchableWithoutFeedback>
   );
