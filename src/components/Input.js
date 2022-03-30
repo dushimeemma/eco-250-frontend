@@ -5,11 +5,13 @@ import ImageUrl from '../components/Image';
 import colors from '../config/colors';
 
 const Input = ({
+  name,
   placeholder,
   placeholderTextColor,
   onChangeText,
   value,
   icon,
+  onBlur,
 }) => {
   return (
     <View style={styles.searchInput}>
@@ -22,8 +24,10 @@ const Input = ({
         }
       />
       <TextInput
+        name={name}
         style={styles.textInput}
         onChangeText={onChangeText}
+        onBlur={onBlur}
         value={value}
         placeholder={placeholder ? placeholder : 'Search or type item'}
         placeholderTextColor={
